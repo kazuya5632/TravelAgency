@@ -32,6 +32,7 @@
 			</table>
 			<input type="hidden" name="adultPrice" value="${tour.adultPrice}" />
 			<input type="hidden" name="chilePrice" value="${tour.childPrice}" />
+
 			<input type="submit" value="登録">
 		</s:form>
 	</div>

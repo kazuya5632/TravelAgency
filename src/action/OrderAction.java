@@ -59,7 +59,7 @@ public class OrderAction extends ActionSupport implements RequestAware, SessionA
 
 			// ツアー格納
 			sessionMap.put("tour", logic.findTourByPrimaryKey(code));
-
+			
 			return "success";
 		} catch (Exception e) {
 			e.printStackTrace();

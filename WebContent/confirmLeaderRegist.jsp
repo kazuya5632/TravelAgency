@@ -37,6 +37,11 @@
 			<br>
 
 			<h4>上記の内容で登録しますか？</h4>
+			<input type="hidden" name="departure" value="${tour.departure}" />
+			<input type="hidden" name="adultPrice" value="${tour.adultPrice}" />
+			<input type="hidden" name="childPrice" value="${tour.childPrice}" />
+			<input type="hidden" name="adultNumber" value="${adultNumber}" />
+			<input type="hidden" name="childNumber" value="${childNumber}" />
 			<input type="submit" value="登録">
 		</s:form>
 		<br> <a
