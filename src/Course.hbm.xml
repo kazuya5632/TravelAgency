@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="beans.Course" table="Course" lazy="false">
+		<id name="code" column="course_code" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="name" type="string" column="course_name" />
+		<property name="days" type="string" column="days" />
+		<property name="place" type="string" column="place" />
+		<property name="hotel" type="string" column="hotel" />
+		<property name="transport" type="string" column="transport" />
+		<property name="plan" type="string" column="plan" />
+		<property name="ver" type="string" column="ver" />
+	</class>
+	<!-- <query name="itemInCategory"> <![CDATA[ from beans.Item as item where
+		item.category_code = :category_code order by item.price]]> </query> -->
+</hibernate-mapping>

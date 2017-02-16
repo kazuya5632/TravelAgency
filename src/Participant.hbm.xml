@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="beans.Participant" table="Participant" lazy="false">
+		<id name="code" column="participant_code" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="name" type="string" column="name" />
+		<property name="kana" type="string" column="kana" />
+		<property name="sex" type="string" column="sex" />
+		<property name="birthday" type="string" column="birthday" />
+		<property name="address" type="string" column="address" />
+		<property name="tel" type="string" column="tel" />
+		<property name="mail" type="string" column="mail" />
+	</class>
+</hibernate-mapping>

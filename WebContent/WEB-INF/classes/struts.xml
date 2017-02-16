@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+		<action name="index">
+			<result type="redirectAction">
+				<param name="actionName">HelloWorld</param>
+				<param name="namespace">/example</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="travel" namespace="/travel" extends="struts-default">
+		<action name="menu" class="action.MenuAction" method="menu">
+			<result name="success">/menu.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="registCourseTour" class="action.MenuAction"
+			method="registMenu">
+			<result name="success">/registCourseTour.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="startCourseRegist" class="action.CourseAction"
+			method="startRegist">
+			<result name="success">/inputCourse.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="startTourRegist" class="action.TourAction"
+			method="startRegist">
+			<result name="success">/inputTour.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="courseRegist" class="action.CourseAction" method="regist">
+			<result name="success">/confirmCourseRegist.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="tourRegist" class="action.TourAction" method="regist">
+			<result name="success">/confirmTourRegist.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="goRegistCourse" class="action.CourseAction"
+			method="goRegist">
+			<result name="success">/resultRegist.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="goRegistTour" class="action.TourAction" method="goRegist">
+			<result name="success">/resultRegist.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+
+
+	</package>
+
+	<package name="order" namespace="/order" extends="struts-default">
+		<action name="startOrder" class="action.MenuAction" method="startOrder">
+			<result name="success">/searchTour.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="searchTour" class="action.OrderAction" method="searchTour">
+			<result name="success">/tour.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="tourDetail" class="action.OrderAction" method="tourDetail">
+			<result name="success">/tourDetail.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="preOrder" class="action.OrderAction" method="preOrder">
+			<result name="success">/inputLeader.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="leaderRegist" class="action.OrderAction" method="leaderRegist">
+			<result name="success">/confirmLeaderRegist.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="goRegistLeader" class="action.OrderAction"
+			method="goRegistLeader">
+			<result name="success">/resultRegistOrder.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+		<action name="goPreOrder" class="action.OrderAction" method="goPreOrder">
+			<result name="success">/resultPreOrder.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>
+	</package>
+
+	<include file="example.xml" />
+
+	<!-- Add packages here -->
+
+</struts>

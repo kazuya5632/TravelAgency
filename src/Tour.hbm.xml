@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="beans.Tour" table="Tour" lazy="false">
+		<id name="code" column="tour_code" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="courseCode" type="int" column="course_code" />
+		<property name="name" type="string" column="tour_name" />
+		<property name="capacity" type="int" column="capacity" />
+		<property name="adultPrice" type="int" column="adult_price" />
+		<property name="childPrice" type="int" column="child_price" />
+		<property name="departure" type="string" column="departure" />
+		<property name="deadline" type="string" column="deadline" />
+		<property name="flag" type="boolean" column="flag" />
+	</class>
+	<query name="tourInCourseCode">
+	<![CDATA[ from beans.Tour as tour where tour.courseCode = :course_code and tour.departure >= :departure order by tour.code]]>
+	</query>
+</hibernate-mapping>
