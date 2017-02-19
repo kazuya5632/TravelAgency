@@ -1,0 +1,87 @@
+◇UMLレビュー
+　●コース
+　　　３泊２日
+　　　信州スキー旅行
+　　　メトロポリタンホテル
+　　1.ツアーA
+　　　２月３日
+　　　１２人
+　　　６００００円
+　　2.ツアーB
+　　　１２月１日
+　　　３０人
+　　　１００００円
+
+　●ユースケース
+　・extend
+　　特別な場合の処理
+　ユースケース分ける→ロジックが別で必要
+
+　●キャンセル時の払い戻し
+　
+　●クラス図
+　　・コース１
+　　・ツアー０以上
+　　・申し込み１
+　　
+　　・申し込み　多
+　　・参加者　多
+　　・責任者
+　　
+　●
+　　
+　　
+create table course(
+course_code int not null auto_increment,
+course_name varchar(255),
+days varchar(255),
+place varchar(255),
+hotel varchar(255),
+transport varchar(255),
+plan varchar(255),
+ver varchar(255),
+primary key (course_code)
+);
+
+create table tour(
+tour_code int not null auto_increment,
+course_code int not null,
+capacity int,
+adult_price int,
+child_price int,
+departure varchar(255),
+deadline varchar(255),
+flag boolean,
+primary key(tour_code)
+);
+
+
+create table orderInfo(
+order_code int not null auto_increment,
+tour_code int,
+price int,
+order_flag boolean,
+payment_flag boolean,
+cancel_flag boolean,
+ok_flag boolean,
+primary key (order_code)
+);
+
+create table order_detail(
+tour_code int not null,
+partcipant_code int not null,
+leader_flag boolean,
+relation varchar(255)
+);
+
+create table participant(
+participant_code int not null auto_increment,
+name varchar(255),
+kana varchar(255),
+sex varchar(255),
+birthday varchar(255),
+address varchar(255),
+tel varchar(255),
+mail varchar(255),
+primary key (participant_code));
+
